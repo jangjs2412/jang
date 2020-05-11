@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>좋아요</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "root">
+        <!--
+            //"v-@" 속성은 뷰로 통제한다.
+            <v-if>와<v-else> 는 형제태그이면서 "인접"해야한다
+        -->
+        <div v-if="liked">좋아요 눌렀음</div>
+        <button v-else v-on:click="onClickButton">LIKE</button>
+    </div>
+</body>
+<script>
+    const app = new Vue({
+        el: '#root',
+        //data만 바꾸면 화면이 알아서 바뀐다.
+        //화면과 data를 일치시키는 것이 중요!
+        //★★★★★data를 관리한다!
+        data : {
+            liked: false,
+        },
+        methods : {
+            onClickButton(){
+                this.liked = true;
+            },
+        }
+    });
+</script>
+</html>
