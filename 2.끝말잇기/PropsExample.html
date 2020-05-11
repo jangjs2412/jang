@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <title>끝 말 잇 기</title>
+</head>
+<body>
+    <div id="root">
+        <div><h1>끝 말 잇 기</h1></div>
+        <word-relay start-word = "불족발"></word-relay>
+        <word-relay start-word = "피자"></word-relay>
+        <word-relay start-word = "불고기"></word-relay>
+    </div>
+    <script>
+        //컴포넌트 - 공통된 부분은 있지만 데이터가 다르다.
+        Vue.component('word-relay', {
+            template : `
+                <div>
+                    <div>{{word}}</div>
+                        <form v-on:submit="onSubmitForm">
+                            <input type = "text" refs="answer" v-model="value">
+                            <button type="submit">입력</button>
+                        </form>
+                    <div>{{result}}</div>
+                </div>
+            `,
+            props : ['startWord'],
+            data() {
+                return {
+                    word : this.startWord,
+                    value : '',
+                    result : '',
+                }
+            },
+            methods : {
+                onSubmitForm(e){
+                    e.preventDefault();
+                    if(this.word[this.word.length-1] === this.value[0]){
+                        this.word = this.value;
+                        this.value="";
+                        this.result = "정답";
+                        this.$refs.value = focus();
+                    }
+                    else{
+                        this.value="";
+                        this.result="땡";
+                        this.$refs.value = focus();
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        //화면은 처음에만 만들고, 데이터에서 다 처리한다.
+        const app = new Vue({
+            el : "#root",
+        });
+    </script>
+</body>
+</html>
