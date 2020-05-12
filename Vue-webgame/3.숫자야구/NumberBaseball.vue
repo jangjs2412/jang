@@ -30,9 +30,9 @@
         data() {
             return{
                 answer: getNumbers(),   //ex) [1,2,3,4]
-                tries: [],
-                value: '',
-                result: '',
+                tries: [],  //시도 수
+                value: '',  //입력
+                result: '', //결과
             }
         },
         methods : {
@@ -46,8 +46,17 @@
                     alert('게임을 다시 실행합니다.');
                     this.value='';
                     this.tries= [];
+                    this.answer = getNumbers();
                     this.$refs.answer.focus();
                 }   else {  //답을 틀렸을 경우
+                    if (this.tries.length >= 9) {   //10번째 시도
+                        this.result = `10번 넘게 틀려서 실패! 정답은 ${this.answer.join(',')}였습니다!`;
+                        alert('게임을 다시 시작합니다.');
+                        his.value='';
+                        this.tries= [];
+                        this.answer = getNumbers();
+                        this.$refs.answer.focus();
+                    }
                     let strike = 0;
                     let ball = 0;
                     const answerArray = this.value.split('').map(v => parseInt(v));
