@@ -1,3 +1,6 @@
+<!--
+    컴포넌트
+-->
 <template>
     <div>
         <h1>{{result}}</h1>
@@ -7,7 +10,7 @@
         </form>
         <div>시도 : {{tries.length}}</div>
         <ul>
-            <li v-for="t in tries">
+            <li v-for="t in tries" v-bind:key="t">
                 <div>{{t.try}}</div>
                 <div>{{t.result}}</div>
             </li>
@@ -29,7 +32,7 @@
     export default {
         data() {
             return{
-                answer: getNumbers(),   //ex) [1,2,3,4]
+                answer: getNumbers(),   //ex) [1,2,3,4] 랜덤 숫자 네자리
                 tries: [],  //시도 수
                 value: '',  //입력
                 result: '', //결과
@@ -59,6 +62,7 @@
                     }
                     let strike = 0;
                     let ball = 0;
+                    //문자열을 숫자열로 변환
                     const answerArray = this.value.split('').map(v => parseInt(v));
                     for (let i=0;i<4;i+=1){
                         if (answerArray[i] === this.answer[i]) {    //숫자 자릿수 모두 정답
