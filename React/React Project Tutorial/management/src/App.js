@@ -4,7 +4,7 @@ import Customer from './components/Customer';
 import { Table, TableBody, TableHead, TableCell, TableRow } from '@material-ui/core';
 import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
-//import classes from '*.module.css';
+
 
 const styles = theme => ({
   root : {
