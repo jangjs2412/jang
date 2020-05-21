@@ -12,7 +12,7 @@ class Customer extends React.Component {
     }
 }
 
-//사용자의 id와 image 랜더링
+//사용자의 id와 image 랜더링.
 class CustomerProfile extends React.Component {
     render() {
         return(
