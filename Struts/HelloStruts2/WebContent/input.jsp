@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="helloStruts" name="f" method="post">
+<form action="tutorialStruts.action" name="f" method="post">
 	아 이 디 : <input type="text" name="name" /><br>
 	비밀번호 : <input type="text" name="pass" /><br><br>
 	<input type="submit" value="보내기">

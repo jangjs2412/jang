@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%@
+<!-- 	
 	//taglib : 태그 라이브러리 사용 지시자
 	//태그를 통해 프로그램을 실행한다.
 	//prefix : 태그 구분자
 	//uri : 태그를 정의하고 있는 프로그램 파일
- %>
+-->
 <html>
 <head>
 <meta charset="UTF-8">
